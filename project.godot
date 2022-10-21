@@ -8,14 +8,41 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Button",
+"class": "SceneButton",
+"language": "GDScript",
+"path": "res://menus/Controls/SceneButton.gd"
+} ]
+_global_script_class_icons={
+"SceneButton": ""
+}
+
 [application]
 
-config/name="AI Game"
+config/name="The Last of the Hippotatos"
+run/main_scene="res://menus/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+SettingsManager="*res://scripts/globals/SettingsManager.gd"
+GameManager="*res://scripts/globals/GameManager.gd"
+SceneManager="*res://scripts/globals/SceneManager.gd"
+MusicManager="*res://scripts/globals/MusicManager.tscn"
+UiSoundManager="*res://scripts/globals/UISoundManager.tscn"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[input]
+
+exit={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [physics]
 

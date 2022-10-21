@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menus/QuitPopup.gd" type="Script" id=1]
+
+[node name="QuitPopup" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource( 1 )
+
+[node name="PanelContainer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+margin_bottom = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.862745 )
+
+[node name="Label" type="Label" parent="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+text = "Quit Game?"
+align = 1
+valign = 1
+
+[node name="Buttons" type="Control" parent="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -50.0
+margin_right = 100.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Buttons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -12.5
+margin_right = 34.0
+margin_bottom = 12.5
+
+[node name="YesButton" type="Button" parent="PanelContainer/Buttons/HBoxContainer"]
+margin_right = 34.0
+margin_bottom = 25.0
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="PanelContainer/Buttons/HBoxContainer"]
+margin_left = 38.0
+margin_right = 68.0
+margin_bottom = 25.0
+text = "No"
+
+[connection signal="pressed" from="PanelContainer/Buttons/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Buttons/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]
