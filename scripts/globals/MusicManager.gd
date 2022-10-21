@@ -1,6 +1,6 @@
 extends Node
 
-var idle_music = load("res://sounds/music/spooky-carving.wav")
+var idle_music = load("res://assert/sounds/music/spooky-carving.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
