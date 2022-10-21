@@ -4,10 +4,16 @@ export var use_text_as_link = true
 export var link = ""
 
 func _ready():
-	var _err = connect("pressed", self, "goto_link")
+	var err = connect("pressed", self, "goto_link")
+	if err != 0:
+		print("ERROR: ", err)
 
 func goto_link():
 	if use_text_as_link:
-		var _err = OS.shell_open(text):
+		var err = OS.shell_open(text)
+		if err != 0:
+			print("ERROR: ", err)
 	else:
-		var _err = OS.shell_open(link)
+		var err = OS.shell_open(link)
+		if err != 0:
+			print("ERROR: ", err)

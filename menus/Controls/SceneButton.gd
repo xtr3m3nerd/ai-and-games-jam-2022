@@ -8,7 +8,9 @@ export var scene_to_load: String
 export(LOAD_TYPE) var load_type = LOAD_TYPE.NONE
 
 func _ready():
-	var _err = connect("pressed", self, "_on_pressed")
+	var err = connect("pressed", self, "_on_pressed")
+	if err != 0:
+		print("ERROR: ", err)
 
 func _on_pressed():
 	if scene_to_load == null:
