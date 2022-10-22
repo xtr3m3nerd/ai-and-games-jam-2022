@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/CharacterMover.gd"
 }, {
+"base": "Node",
+"class": "Genes",
+"language": "GDScript",
+"path": "res://characters/animal_parts/Genes.gd"
+}, {
 "base": "Area",
 "class": "Pickup",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CharacterMover": "",
+"Genes": "",
 "Pickup": "",
 "RandomSounds": "",
 "SceneButton": ""

@@ -4,10 +4,10 @@ onready var track1: AudioStreamPlayer = $Track1
 onready var track2: AudioStreamPlayer = $Track2
 
 # TODO - replace this with the starting music
-var menu_music = load("res://assert/sounds/music/spooky-carving.wav")
-var story_music = load("res://assert/sounds/music/spooky-carving.wav")
-var lab_music = load("res://assert/sounds/music/spooky-carving.wav")
-var battle_music = load("res://assert/sounds/music/spooky-carving.wav")
+var menu_music = load("res://assets/sounds/music/hippotato_game_menu_draft.wav")
+var story_music = load("res://assets/sounds/music/hippotato_game_intro_draft.wav")
+var lab_music = load("res://assets/sounds/music/hippotato_game_menu_draft.wav")
+var battle_music = load("res://assets/sounds/music/hippotato_game_battle_theme_draft.wav")
 
 enum MUSIC { MENU, STORY, LAB, BATTLE }
 
@@ -26,7 +26,7 @@ func get_song_from_enum(music):
 
 var fade_timer: Timer
 
-var cur_music = MUSIC.IDLE
+var cur_music = MUSIC.MENU
 var cur_track = null
 var pre_track = null
 
