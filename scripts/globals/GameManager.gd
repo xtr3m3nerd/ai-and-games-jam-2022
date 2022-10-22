@@ -13,4 +13,4 @@ func quit_game():
 	if is_quiting:
 		return
 	is_quiting = true
-	get_tree().current_scene.add_child(quit_popup.instance())
+	get_tree().get_root().add_child(quit_popup.instance())

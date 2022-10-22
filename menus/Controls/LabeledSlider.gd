@@ -52,7 +52,9 @@ func _ready():
 	$HSlider.min_value = min_value
 	$HSlider.max_value = max_value
 	$HSlider.value = value
-	$HSlider.connect("value_changed", self, "on_value_changed")
+	var err = $HSlider.connect("value_changed", self, "on_value_changed")
+	if err != 0:
+		print("ERROR: ", err)
 
 func on_value_changed(_value):
 	if value != _value:

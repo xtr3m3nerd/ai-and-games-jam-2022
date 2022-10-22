@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/PickupManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/Player.gd" type="Script" id=3]
+[ext_resource path="res://characters/HealthManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cranberry_icon.svg" type="Texture" id=5]
+[ext_resource path="res://characters/CameraRig.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody"]
+collision_layer = 6
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="Graphics" type="Spatial" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Graphics"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640268, 0 )
+billboard = 2
+frames = SubResource( 2 )
+
+[node name="Camera3rdPerson" parent="." instance=ExtResource( 6 )]
+mouse_control = false
+upper_y_limit = -0.1
+
+[node name="Camera1stPerson" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0 )
+visible = false
+
+[node name="CharacterMover" parent="." instance=ExtResource( 1 )]
+move_accel = 2
+max_speed = 10
+jump_force = 20
+
+[node name="HealthManager" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="PickupManager" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]

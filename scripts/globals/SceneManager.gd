@@ -14,7 +14,9 @@ func load_scene(scene_path: String):
 	return scene.instance()
 
 func set_current_scene(scene_path: String):
-	get_tree().change_scene_to_file(scene_path)
+	var err = get_tree().change_scene(scene_path)
+	if err != 0:
+		print("ERROR: ", err)
 	current_scene = get_tree().current_scene
 #	var scene = load_scene(scene_path)
 #	if !scene:
