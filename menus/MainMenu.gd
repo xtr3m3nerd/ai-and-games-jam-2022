@@ -6,7 +6,7 @@ func _ready():
 	$Buttons/StartButton.grab_focus()
 	if OS.get_name() == "Web":
 		$Buttons/QuitButton.hide()
-	MusicManager.play_music()
+	MusicManager.play_music(MusicManager.MUSIC.MENU)
 
 
 func _on_quit_button_pressed():

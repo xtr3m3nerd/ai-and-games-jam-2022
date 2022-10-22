@@ -5,5 +5,7 @@
 [node name="MusicManager" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Track1" type="AudioStreamPlayer" parent="."]
 bus = "Music"
+
+[node name="Track2" type="AudioStreamPlayer" parent="."]
