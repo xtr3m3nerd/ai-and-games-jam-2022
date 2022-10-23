@@ -36,56 +36,99 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80366, 3.3316, 3.00449 )
 transform = Transform( 0.887253, 0.085645, 0.453264, -0.420528, -0.253649, 0.871102, 0.189576, -0.963497, -0.189035, -3.12696, 12.3629, -28.604 )
 light_energy = 0.5
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, -20.5983 )
-
-[node name="ExitArea" type="Area" parent="."]
+[node name="ExitArea" type="Area" parent="Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.0432 )
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape" type="CollisionShape" parent="ExitArea"]
+[node name="CollisionShape" type="CollisionShape" parent="Environment/ExitArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 2 )
 
-[node name="ComputerArea" type="Area" parent="."]
+[node name="ComputerArea" type="Area" parent="Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17365, 0, -3.11401 )
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape" type="CollisionShape" parent="ComputerArea"]
+[node name="CollisionShape" type="CollisionShape" parent="Environment/ComputerArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335054, 1, 0.246162 )
 shape = SubResource( 3 )
 
-[node name="UpgradeArea" type="Area" parent="."]
+[node name="UpgradeArea" type="Area" parent="Environment"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52274, 0, 3.97566 )
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape" type="CollisionShape" parent="UpgradeArea"]
+[node name="CollisionShape" type="CollisionShape" parent="Environment/UpgradeArea"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.335054, 1, 0.246162 )
 shape = SubResource( 4 )
+
+[node name="ComputerCameraPos" type="Spatial" parent="Environment"]
+transform = Transform( -4.29558e-08, -0.185135, 0.982713, -8.09251e-09, 0.982713, 0.185135, -1, 0, -4.37114e-08, -4.38087, 1.49706, -3.37549 )
+
+[node name="UpgradeCameraPos" type="Spatial" parent="Environment"]
+transform = Transform( -1, 1.40155e-09, -8.79277e-08, -1.49012e-08, 0.982713, 0.185135, 8.66671e-08, 0.185135, -0.982713, 3.80769, 1.49706, 1.80037 )
+
+[node name="UpgradeStandPos" type="Spatial" parent="Environment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.45408, 0.245527, 4.42598 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, -20.5983 )
 
 [node name="UI" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ActionText" type="Label" parent="UI"]
-visible = false
+[node name="FreeRoam" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ActionText" type="Label" parent="UI/FreeRoam"]
 anchor_left = 0.5
 anchor_top = 0.7
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -20.0
-margin_top = -14.0
 margin_right = 20.0
 text = "test"
 align = 1
 valign = 1
 
-[connection signal="body_entered" from="ExitArea" to="." method="_on_ExitArea_body_entered"]
-[connection signal="body_exited" from="ExitArea" to="." method="_on_ExitArea_body_exited"]
-[connection signal="body_entered" from="ComputerArea" to="." method="_on_ComputerArea_body_entered"]
-[connection signal="body_exited" from="ComputerArea" to="." method="_on_ComputerArea_body_exited"]
-[connection signal="body_entered" from="UpgradeArea" to="." method="_on_UpgradeArea_body_entered"]
-[connection signal="body_exited" from="UpgradeArea" to="." method="_on_UpgradeArea_body_exited"]
+[node name="Computer" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ActionText" type="Label" parent="UI/Computer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -88.5
+margin_top = -180.0
+margin_right = 88.5
+text = "Press 'Q' to leave computer"
+align = 1
+valign = 1
+
+[node name="Upgrades" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ActionText" type="Label" parent="UI/Upgrades"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -86.5
+margin_top = -180.0
+margin_right = 86.5
+text = "Press 'Q' to leave upgrades"
+align = 1
+valign = 1
+
+[connection signal="body_entered" from="Environment/ExitArea" to="." method="_on_ExitArea_body_entered"]
+[connection signal="body_exited" from="Environment/ExitArea" to="." method="_on_ExitArea_body_exited"]
+[connection signal="body_entered" from="Environment/ComputerArea" to="." method="_on_ComputerArea_body_entered"]
+[connection signal="body_exited" from="Environment/ComputerArea" to="." method="_on_ComputerArea_body_exited"]
+[connection signal="body_entered" from="Environment/UpgradeArea" to="." method="_on_UpgradeArea_body_entered"]
+[connection signal="body_exited" from="Environment/UpgradeArea" to="." method="_on_UpgradeArea_body_exited"]

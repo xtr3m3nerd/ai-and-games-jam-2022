@@ -1,5 +1,6 @@
 extends Spatial
 
+onready var camera_pos = $InnerGimbal/CameraPos
 export var rotation_speed = PI/2
 export var max_zoom = 1.0
 export var min_zoom = 0.25
@@ -59,4 +60,7 @@ func get_input_keyboard(delta):
 		x_rotation += 1
 	$InnerGimbal.rotate_object_local(Vector3.RIGHT, x_rotation * rotation_speed * delta)
 
-	
+func grab_camera():
+	var camera = get_tree().get_nodes_in_group("snap_to_camera")[0]
+	if camera != null:
+		camera.snap_to(camera_pos)

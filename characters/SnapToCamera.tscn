@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/SnapToCamera.gd" type="Script" id=1]
+
+[node name="SnapToCamera" type="Camera" groups=["snap_to_camera"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.53674e-07 )
+script = ExtResource( 1 )

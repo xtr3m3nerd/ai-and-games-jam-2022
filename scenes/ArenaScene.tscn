@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/raw_assets/wasteland_vector_texture_big.png" type="Texture" id=2]
 [ext_resource path="res://characters/Animal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ArenaScene.gd" type="Script" id=4]
-[ext_resource path="res://assets/blender/outer_door.glb" type="PackedScene" id=5]
+[ext_resource path="res://assets/outer_door.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 100, 100 )
@@ -50,7 +50,7 @@ shadow_bias = 0.127
 directional_shadow_split_3 = 0.05
 
 [node name="outer_door" parent="Environment" instance=ExtResource( 5 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.2775, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -48.3964, 0, 0 )
 
 [node name="Navigation" type="Navigation" parent="." groups=["nav"]]
 

@@ -83,6 +83,12 @@ func kill():
 	var dead_screen_inst = dead_screen.instance()
 	get_tree().get_root().add_child(dead_screen_inst)
 
+func freeze():
+	character_mover.freeze()
+
+func unfreeze():
+	character_mover.unfreeze()
+
 #func spawn_damage_numbers(damage):
 #	spawn_numbers(damage, Color.red)
 #

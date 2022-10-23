@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/HealthManager.tscn" type="PackedScene" id=2]
@@ -307,6 +307,12 @@ tracks/23/keys = {
 "update": 0,
 "values": [ 63.6 ]
 }
+
+[sub_resource type="Animation" id=9]
+resource_name = "attack"
+
+[sub_resource type="Animation" id=10]
+resource_name = "die"
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle_loop"
@@ -894,6 +900,8 @@ default_length = 23.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graphics/AnimalVisuals/Viewport/AnimalRig/Graphics"]
 autoplay = "idle_loop"
 anims/RESET = SubResource( 8 )
+anims/attack = SubResource( 9 )
+anims/die = SubResource( 10 )
 anims/idle_loop = SubResource( 2 )
 anims/walk_loop = SubResource( 3 )
 
