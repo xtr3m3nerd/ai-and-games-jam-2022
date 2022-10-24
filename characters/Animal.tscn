@@ -10,18 +10,6 @@
 radius = 0.5
 height = 0.1
 
-[sub_resource type="ViewportTexture" id=11]
-viewport_path = NodePath("Graphics/AnimalVisuals/Viewport")
-
-[sub_resource type="SpatialMaterial" id=7]
-resource_local_to_scene = true
-flags_transparent = true
-params_cull_mode = 2
-params_billboard_mode = 2
-albedo_texture = SubResource( 11 )
-
-[sub_resource type="QuadMesh" id=6]
-
 [sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
@@ -761,6 +749,18 @@ tracks/11/keys = {
 "values": [ 0.0, -4.19176, 0.0, -4.19176 ]
 }
 
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("Graphics/AnimalVisuals/Viewport")
+
+[sub_resource type="SpatialMaterial" id=7]
+resource_local_to_scene = true
+flags_transparent = true
+params_cull_mode = 2
+params_billboard_mode = 2
+albedo_texture = SubResource( 11 )
+
+[sub_resource type="QuadMesh" id=6]
+
 [node name="Animal" type="KinematicBody"]
 collision_layer = 2
 collision_mask = 3
@@ -774,12 +774,6 @@ shape = SubResource( 1 )
 
 [node name="AnimalVisuals" type="Spatial" parent="Graphics"]
 script = ExtResource( 4 )
-
-[node name="ViewportQuad" type="MeshInstance" parent="Graphics/AnimalVisuals"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-material_override = SubResource( 7 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../../..")
 
 [node name="Viewport" type="Viewport" parent="Graphics/AnimalVisuals"]
 size = Vector2( 344, 218 )
@@ -820,7 +814,6 @@ bones = [ "body", PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 
 [node name="RearLegR" type="Polygon2D" parent="Graphics/AnimalVisuals/Viewport/AnimalRig/Graphics/Polygons"]
 position = Vector2( -0.20903, -32.0576 )
 rotation = 0.000293284
-scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 31.893, 141.358, 31.893, 141.358, 15.2263, 162.551, 11.5226, 183.333, 16.4609, 204.938, 20.3704, 221.605, 25.7202, 234.979, 39.9177, 237.86, 50.4115, 237.037, 63.5802, 236.626, 70.3704, 234.156, 67.0782, 222.839, 56.1728, 216.255, 50, 206.173, 53.9095, 188.272, 58.0247, 168.724, 54.1152, 153.704, 45.679, 145.679, 31.4815, 187.449, 33.9506, 176.132, 36.4198, 213.58, 43.2099, 224.28 )
@@ -909,6 +902,12 @@ anims/attack = SubResource( 9 )
 anims/die = SubResource( 10 )
 anims/idle_loop = SubResource( 2 )
 anims/walk_loop = SubResource( 3 )
+
+[node name="ViewportQuad" type="MeshInstance" parent="Graphics/AnimalVisuals"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+material_override = SubResource( 7 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../../..")
 
 [node name="CharacterMover" parent="." instance=ExtResource( 1 )]
 move_accel = 1
