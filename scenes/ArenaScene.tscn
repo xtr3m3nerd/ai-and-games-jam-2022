@@ -60,37 +60,13 @@ navmesh = SubResource( 6 )
 [node name="Animals" type="Spatial" parent="Navigation"]
 
 [node name="Animal" parent="Navigation/Animals" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2092, -1.19209e-07, -8.84495 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3096, -1.19209e-07, -20.7322 )
 sight_angle = 360.0
 sight_range = 10.0
 can_turn_while_attacking = true
 
 [node name="Animal2" parent="Navigation/Animals" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.8759, -1.19209e-07, -18.4384 )
-sight_angle = 360.0
-sight_range = 10.0
-can_turn_while_attacking = true
-
-[node name="Animal3" parent="Navigation/Animals" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.853, -1.19209e-07, -20.0644 )
-sight_angle = 360.0
-sight_range = 10.0
-can_turn_while_attacking = true
-
-[node name="Animal4" parent="Navigation/Animals" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.55614, -1.19209e-07, -21.2026 )
-sight_angle = 360.0
-sight_range = 10.0
-can_turn_while_attacking = true
-
-[node name="Animal5" parent="Navigation/Animals" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.3733, -1.19209e-07, -9.17015 )
-sight_angle = 360.0
-sight_range = 10.0
-can_turn_while_attacking = true
-
-[node name="Animal6" parent="Navigation/Animals" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.2107, -1.19209e-07, -22.5034 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5726, -1.19209e-07, -20.9389 )
 sight_angle = 360.0
 sight_range = 10.0
 can_turn_while_attacking = true

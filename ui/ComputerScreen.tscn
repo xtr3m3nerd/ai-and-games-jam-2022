@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/TerminalUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/ComputerScreen.gd" type="Script" id=2]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 4, 3 )
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 2, 1.5, 0.05 )
+
+[node name="ComputerScreen" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Quad" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Area" type="Area" parent="Quad"]
+collision_layer = 32
+input_capture_on_drag = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Quad/Area"]
+shape = SubResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 800, 600 )
+usage = 0
+render_target_v_flip = true
+
+[node name="TerminalUI" parent="Viewport" instance=ExtResource( 1 )]

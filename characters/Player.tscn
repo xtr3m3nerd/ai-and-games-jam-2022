@@ -1,22 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/PickupManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/Player.gd" type="Script" id=3]
 [ext_resource path="res://characters/HealthManager.tscn" type="PackedScene" id=4]
-[ext_resource path="res://cranberry_icon.svg" type="Texture" id=5]
+[ext_resource path="res://characters/player_parts/PlayerVisuals.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/CameraRig.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [node name="Player" type="KinematicBody" groups=["player"]]
 collision_layer = 6
@@ -29,10 +21,7 @@ shape = SubResource( 1 )
 
 [node name="Graphics" type="Spatial" parent="."]
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Graphics"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.640268, 0 )
-billboard = 2
-frames = SubResource( 2 )
+[node name="PlayerVisuals" parent="Graphics" instance=ExtResource( 5 )]
 
 [node name="Camera3rdPerson" parent="." instance=ExtResource( 6 )]
 mouse_control = false

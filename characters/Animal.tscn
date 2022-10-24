@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/HealthManager.tscn" type="PackedScene" id=2]
@@ -10,10 +10,15 @@
 radius = 0.5
 height = 0.1
 
+[sub_resource type="ViewportTexture" id=11]
+viewport_path = NodePath("Graphics/AnimalVisuals/Viewport")
+
 [sub_resource type="SpatialMaterial" id=7]
+resource_local_to_scene = true
 flags_transparent = true
 params_cull_mode = 2
 params_billboard_mode = 2
+albedo_texture = SubResource( 11 )
 
 [sub_resource type="QuadMesh" id=6]
 

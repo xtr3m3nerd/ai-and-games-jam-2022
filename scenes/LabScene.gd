@@ -8,14 +8,15 @@ var spatial_mover = preload("res://scripts/spatial_mover.tscn")
 export var arena_scene: String = "res://scenes/ArenaScene.tscn"
 onready var player = $Player
 
-onready var freeroam_ui = $UI/FreeRoam
-onready var freeroam_action_text = $UI/FreeRoam/ActionText
-onready var computer_ui = $UI/Computer
-onready var upgrades_ui = $UI/Upgrades
+onready var freeroam_ui = $CanvasLayer/UI/FreeRoam
+onready var freeroam_action_text = $CanvasLayer/UI/FreeRoam/ActionText
+onready var computer_ui = $CanvasLayer/UI/Computer
+onready var upgrades_ui = $CanvasLayer/UI/Upgrades
 
 onready var computer_camera_pos = $Environment/ComputerCameraPos
 onready var upgrade_camera_pos = $Environment/UpgradeCameraPos
 onready var upgrade_stand_pos = $Environment/UpgradeStandPos
+
 
 var is_at_exit = false
 var is_at_computer = false
@@ -36,6 +37,7 @@ func _ready():
 	freeroam_action_text.hide()
 	computer_ui.hide()
 	upgrades_ui.hide()
+	
 
 func _process(_delta):
 	match(cur_state):
@@ -144,3 +146,8 @@ func _on_UpgradeArea_body_exited(body):
 	if body == player:
 		is_at_upgrades = false
 		freeroam_action_text.hide()
+
+
+func _on_ExitArea_mouse_entered():
+	freeroam_action_text.text = "Mouse in area"
+	freeroam_action_text.show()

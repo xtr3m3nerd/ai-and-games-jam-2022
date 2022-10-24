@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/LabScene.gd" type="Script" id=1]
 [ext_resource path="res://assets/Lab.tscn" type="PackedScene" id=2]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/Upgrades.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -75,15 +76,19 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.45408
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, -20.5983 )
 
-[node name="UI" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
-[node name="FreeRoam" type="Control" parent="UI"]
+[node name="FreeRoam" type="Control" parent="CanvasLayer/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
-[node name="ActionText" type="Label" parent="UI/FreeRoam"]
+[node name="ActionText" type="Label" parent="CanvasLayer/UI/FreeRoam"]
 anchor_left = 0.5
 anchor_top = 0.7
 anchor_right = 0.5
@@ -94,11 +99,12 @@ text = "test"
 align = 1
 valign = 1
 
-[node name="Computer" type="Control" parent="UI"]
+[node name="Computer" type="Control" parent="CanvasLayer/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 
-[node name="ActionText" type="Label" parent="UI/Computer"]
+[node name="ActionText" type="Label" parent="CanvasLayer/UI/Computer"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -110,24 +116,12 @@ text = "Press 'Q' to leave computer"
 align = 1
 valign = 1
 
-[node name="Upgrades" type="Control" parent="UI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="ActionText" type="Label" parent="UI/Upgrades"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -86.5
-margin_top = -180.0
-margin_right = 86.5
-text = "Press 'Q' to leave upgrades"
-align = 1
-valign = 1
+[node name="Upgrades" parent="CanvasLayer/UI" instance=ExtResource( 4 )]
+mouse_filter = 2
 
 [connection signal="body_entered" from="Environment/ExitArea" to="." method="_on_ExitArea_body_entered"]
 [connection signal="body_exited" from="Environment/ExitArea" to="." method="_on_ExitArea_body_exited"]
+[connection signal="mouse_entered" from="Environment/ExitArea" to="." method="_on_ExitArea_mouse_entered"]
 [connection signal="body_entered" from="Environment/ComputerArea" to="." method="_on_ComputerArea_body_entered"]
 [connection signal="body_exited" from="Environment/ComputerArea" to="." method="_on_ComputerArea_body_exited"]
 [connection signal="body_entered" from="Environment/UpgradeArea" to="." method="_on_UpgradeArea_body_entered"]
