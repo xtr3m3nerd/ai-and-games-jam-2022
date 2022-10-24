@@ -13,12 +13,18 @@ onready var character_mover = $CharacterMover
 onready var health_manager = $HealthManager
 onready var pickup_manager = $PickupManager 
 
-var dead = false
+enum STATE { IDLE, WALKING, ATTACKING, BLOCKING, DEAD }
+var cur_state = STATE.IDLE
+var performing_action = false
+onready var anim_player: AnimationPlayer = $Graphics/PlayerVisuals/Viewport/PlayerRig/AnimationPlayer
+onready var player_rig = $Graphics/PlayerVisuals/Viewport/PlayerRig
 
 func _ready():
 	if is_1st_person:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	character_mover.init(self)
+	
+	anim_player.connect("animation_finished", self, "on_animation_finished")
 	
 #	pickup_manager.connect("got_pickup", health_manager, "get_pickup")
 #	pickup_manager.connect("check_can_pickup", health_manager, "can_pickup")
@@ -31,16 +37,17 @@ func _ready():
 	respawn()
 
 func respawn():
-	dead = false
+	performing_action = false
+	change_state(STATE.IDLE)
 	character_mover.unfreeze()
 	health_manager.reset()
 	health_manager.init()
 
 func _process(_delta):
-	if dead: 
+	if cur_state == STATE.DEAD:
 		return
 
-	var move_vec = Vector3()
+	var move_vec = Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
 		move_vec += Vector3.FORWARD
 	if Input.is_action_pressed("move_backward"):
@@ -51,14 +58,27 @@ func _process(_delta):
 		move_vec += Vector3.RIGHT
 	character_mover.set_move_vec(move_vec)
 	
+	
 	if Input.is_action_just_pressed("interact"):
 		pickup_manager.grab_pickup()
 	
 	if Input.is_action_just_pressed("jump"):
 		character_mover.jump()
 	
+	if Input.is_action_just_pressed("attack"):
+		change_state(STATE.ATTACKING)
+		
+	if Input.is_action_just_pressed("block"):
+		change_state(STATE.BLOCKING)
+	
 	if global_transform.origin.y < -20:
 		hurt(1000000, Vector3.ZERO)
+	
+	if !performing_action:
+		if move_vec == Vector3.ZERO and cur_state != STATE.IDLE:
+			change_state(STATE.IDLE)
+		elif move_vec != Vector3.ZERO and cur_state != STATE.WALKING:
+			change_state(STATE.WALKING)
 	
 func _physics_process(_delta):
 	camera_3rd.global_transform.origin = lerp(camera_3rd.global_transform.origin, global_transform.origin, camera_damp)
@@ -78,7 +98,7 @@ func heal(amount):
 	health_manager.heal(amount)
 
 func kill():
-	dead = true
+	change_state(STATE.DEAD)
 	character_mover.freeze()
 	var dead_screen_inst = dead_screen.instance()
 	get_tree().get_root().add_child(dead_screen_inst)
@@ -89,6 +109,55 @@ func freeze():
 func unfreeze():
 	character_mover.unfreeze()
 
+func change_state(new_state):
+	# Close out previous states
+	match(cur_state):
+		STATE.IDLE:
+			pass
+		STATE.WALKING:
+			pass
+		STATE.ATTACKING:
+			pass
+		STATE.BLOCKING:
+			pass
+		STATE.DEAD:
+			pass
+			
+	match(new_state):
+		STATE.IDLE:
+			anim_player.play("idle_loop")
+		STATE.WALKING:
+			anim_player.play("walk_loop")
+		STATE.ATTACKING:
+			performing_action = true
+			anim_player.play("attack")
+			#TODO - Add logic for attacking
+		STATE.BLOCKING:
+			performing_action = true
+			anim_player.play("block")
+			#TODO - Add logic for blocking
+		STATE.DEAD:
+			performing_action = true
+			anim_player.play("die")
+	
+	cur_state = new_state
+
+func on_animation_finished(anim_name):
+	match(cur_state):
+		STATE.IDLE:
+			pass
+		STATE.WALKING:
+			pass
+		STATE.ATTACKING:
+			performing_action = false
+		STATE.BLOCKING:
+			performing_action = false
+		STATE.DEAD:
+			pass
+
+func apply_upgrade(upgrade):
+	player_rig.upgrade_rig(upgrade["rig_change"])
+	
 #func spawn_damage_numbers(damage):
 #	spawn_numbers(damage, Color.red)
 #

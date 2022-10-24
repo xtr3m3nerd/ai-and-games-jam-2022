@@ -3,8 +3,10 @@ extends Control
 var upgrade_panel = preload("res://ui/UpgradePanel.tscn")
 
 onready var upgrade_list = $Panel/UpgradeList
+var player = null
 
 func _ready():
+	player = get_tree().get_nodes_in_group("player")[0]
 	setup_upgrades()
 
 func setup_upgrades():
@@ -16,3 +18,4 @@ func setup_upgrades():
 
 func on_purchase_upgrade(upgrade):
 	print(upgrade)
+	player.apply_upgrade(upgrade)

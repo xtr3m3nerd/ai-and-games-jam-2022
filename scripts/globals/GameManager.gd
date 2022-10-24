@@ -27,6 +27,7 @@ var available_upgrades = [
 		"amount": 5,
 		"description": "Increased Speed",
 		"stat": "speed",
+		"rig_change": PlayerRig.UPGRADES.WHEELS,
 		"image": "image_path",
 	},
 	{
@@ -35,6 +36,7 @@ var available_upgrades = [
 		"amount": 5,
 		"description": "Increased Damage",
 		"stat": "melee_damage",
+		"rig_change": PlayerRig.UPGRADES.CROWBAR,
 		"image": "image_path",
 	},
 	{
@@ -43,6 +45,7 @@ var available_upgrades = [
 		"amount": 5,
 		"description": "Increased Defense",
 		"stat": "blocking",
+		"rig_change": PlayerRig.UPGRADES.SIGNSHIELD,
 		"image": "image_path",
 	},
 	{
@@ -51,6 +54,7 @@ var available_upgrades = [
 		"amount": 10,
 		"description": "Increase Max HP",
 		"stat": "maxhp",
+		"rig_change": PlayerRig.UPGRADES.METALBODY,
 		"image": "image_path",
 	},
 ]
