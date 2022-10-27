@@ -20,11 +20,15 @@ onready var anim_player: AnimationPlayer = $Graphics/PlayerVisuals/Viewport/Play
 onready var player_rig = $Graphics/PlayerVisuals/Viewport/PlayerRig
 
 func _ready():
+	for upgrade in GameManager.player_data["applied_upgrades"]:
+		apply_upgrade(upgrade)
 	if is_1st_person:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	character_mover.init(self)
 	
-	anim_player.connect("animation_finished", self, "on_animation_finished")
+	var err = anim_player.connect("animation_finished", self, "on_animation_finished")
+	if err != 0:
+		print("ERROR: unable to connect to animation_finished: ", err)
 	
 #	pickup_manager.connect("got_pickup", health_manager, "get_pickup")
 #	pickup_manager.connect("check_can_pickup", health_manager, "can_pickup")
@@ -79,6 +83,11 @@ func _process(_delta):
 			change_state(STATE.IDLE)
 		elif move_vec != Vector3.ZERO and cur_state != STATE.WALKING:
 			change_state(STATE.WALKING)
+	
+	var mouse_pos = get_viewport().get_mouse_position()
+	var camera: Camera = get_viewport().get_camera()
+	var screen_space = camera.unproject_position(global_transform.origin)
+	player_rig.flip(mouse_pos.x > screen_space.x)
 	
 func _physics_process(_delta):
 	camera_3rd.global_transform.origin = lerp(camera_3rd.global_transform.origin, global_transform.origin, camera_damp)
@@ -142,7 +151,7 @@ func change_state(new_state):
 	
 	cur_state = new_state
 
-func on_animation_finished(anim_name):
+func on_animation_finished(_anim_name):
 	match(cur_state):
 		STATE.IDLE:
 			pass
@@ -156,7 +165,7 @@ func on_animation_finished(anim_name):
 			pass
 
 func apply_upgrade(upgrade):
-	player_rig.upgrade_rig(upgrade["rig_change"])
+	player_rig.upgrade_rig(upgrade.get("rig_change"))
 	
 #func spawn_damage_numbers(damage):
 #	spawn_numbers(damage, Color.red)

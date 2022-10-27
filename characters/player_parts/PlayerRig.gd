@@ -20,11 +20,19 @@ onready var left_foot = $Root/Polygons/LeftFoot
 onready var right_wheel = $Root/Polygons/RightWheel
 onready var left_wheel = $Root/Polygons/LeftWheel
 
+onready var root = $Root
+
 enum UPGRADES { METALBODY, WHEELS, CROWBAR, SIGNSHIELD }
 
 func _ready():
 	pass # Replace with function body.
 
+func flip(is_flipped):
+	if is_flipped:
+		root.scale.x = -abs(root.scale.x)
+	else:
+		root.scale.x = abs(root.scale.x)
+	
 func change_expression(expression):
 	for key in expressions.keys():
 		expressions[key].hide()

@@ -18,4 +18,4 @@ func setup_upgrades():
 
 func on_purchase_upgrade(upgrade):
 	print(upgrade)
-	player.apply_upgrade(upgrade)
+	GameManager.apply_upgrade(upgrade)

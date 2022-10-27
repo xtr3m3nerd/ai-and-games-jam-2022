@@ -33,9 +33,19 @@ margin_top = -46.0
 margin_right = 40.0
 margin_bottom = 46.0
 
-[node name="StartButton" type="Button" parent="Buttons"]
+[node name="Test" type="Button" parent="Buttons"]
 margin_right = 80.0
 margin_bottom = 20.0
+focus_neighbour_top = NodePath("../QuitButton")
+text = "Test"
+script = ExtResource( 2 )
+scene_to_load = "res://characters/animal_parts/AnimalBuilder.tscn"
+load_type = 1
+
+[node name="StartButton" type="Button" parent="Buttons"]
+margin_top = 24.0
+margin_right = 80.0
+margin_bottom = 44.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Play Game"
 script = ExtResource( 2 )
@@ -43,30 +53,31 @@ scene_to_load = "res://scenes/LabScene.tscn"
 load_type = 1
 
 [node name="OptionsButton" type="Button" parent="Buttons"]
-margin_top = 24.0
+margin_top = 48.0
 margin_right = 80.0
-margin_bottom = 44.0
+margin_bottom = 68.0
 text = "Options"
 script = ExtResource( 2 )
 scene_to_load = "res://menus/OptionsMenu.tscn"
 load_type = 2
 
 [node name="CreditsButton" type="Button" parent="Buttons"]
-margin_top = 48.0
+margin_top = 72.0
 margin_right = 80.0
-margin_bottom = 68.0
+margin_bottom = 92.0
 text = "Credits"
 script = ExtResource( 2 )
 scene_to_load = "res://menus/CreditsMenu.tscn"
 load_type = 2
 
 [node name="QuitButton" type="Button" parent="Buttons"]
-margin_top = 72.0
+margin_top = 96.0
 margin_right = 80.0
-margin_bottom = 92.0
+margin_bottom = 116.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Quit"
 
+[connection signal="pressed" from="Buttons/Test" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_button_pressed"]

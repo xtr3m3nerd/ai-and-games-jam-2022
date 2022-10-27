@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/player_parts/PlayerRig.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/animal_parts/AnimalVisuals.gd" type="Script" id=2]
+[ext_resource path="res://characters/player_parts/PlayerVisuals.gd" type="Script" id=2]
 
 [sub_resource type="ViewportTexture" id=8]
 viewport_path = NodePath("Viewport")

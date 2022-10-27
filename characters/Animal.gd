@@ -4,7 +4,8 @@ export var drops: Array = []
 
 #onready var aimer = $AimAtObject
 onready var character_mover = $CharacterMover
-onready var anim_player = $Graphics/AnimalVisuals/Viewport/AnimalRig/Graphics/AnimationPlayer
+onready var animal_builder = $Graphics/AnimalVisuals/Viewport/AnimalBuilder
+onready var anim_player = $Graphics/AnimalVisuals/Viewport/AnimalBuilder.anim_player
 onready var health_manager = $HealthManager
 onready var graphics = $Graphics
 #onready var skeleton = $Graphics/Armature/Skeleton
@@ -33,6 +34,8 @@ var can_attack = true
 export var aggro_on_sight = true
 var aggroed = false
 
+var genes = null
+
 #var aimer_ranged
 #export var seperate_ranged_attack = false
 #export var ranged_attack_range = 100
@@ -44,6 +47,10 @@ signal attack
 signal engaged
 
 func _ready():
+	if genes == null:
+		animal_builder.build_random()
+	else:
+		animal_builder.build_animal(genes)
 	if get_parent().get_class() == "Navigation":
 		nav = get_parent()
 	else:

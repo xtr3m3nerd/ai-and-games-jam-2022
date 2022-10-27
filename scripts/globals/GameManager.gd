@@ -3,13 +3,46 @@ extends Node
 var quit_popup: Resource = load("res://menus/QuitPopup.tscn")
 var is_quiting = false
 
+signal player_updated(_player_data)
+
+func modify_player_data(key, value):
+	player_data[key] = value
+	emit_signal("player_updated", player_data)
+
+
 var player_data = {
 	"hp": 10,
 	"maxhp": 10,
 	"speed": 10,
 	"melee_damage": 5,
-	"money": 25,
+	"money": 15,
+	"applied_upgrades": []
 }
+
+var animal_genes = []
+
+func _ready():
+	populate_animal_genes(20)
+
+func populate_animal_genes(amount):
+	for n in amount: 
+		animal_genes.append(Genes.generate_random_genes())
+
+func apply_upgrade(upgrade):
+	var index = available_upgrades.find(upgrade)
+	if index == -1:
+		return
+	var persistant = upgrade.get("persistant", false)
+	
+	if !persistant:
+		player_data["applied_upgrades"].append(upgrade)
+		available_upgrades.remove(index)
+	
+	var player = get_tree().get_nodes_in_group("player")
+	if player.size() < 1:
+		return
+	player = player[0]
+	player.apply_upgrade(upgrade)
 
 var available_upgrades = [
 	{
