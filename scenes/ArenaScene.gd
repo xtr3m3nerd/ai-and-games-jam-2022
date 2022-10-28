@@ -30,7 +30,6 @@ func spawn_at_random_locations():
 	else:
 		rng.seed = seed_to_use
 	for genes in GameManager.animal_genes:
-		print("??")
 		var space_state = get_world().get_direct_space_state()
 		var x = rng.randf_range(-spawn_range.x, spawn_range.x)
 		var z = rng.randf_range(-spawn_range.y, spawn_range.y)

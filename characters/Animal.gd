@@ -5,6 +5,7 @@ export var drops: Array = []
 #onready var aimer = $AimAtObject
 onready var character_mover = $CharacterMover
 onready var animal_builder = $Graphics/AnimalVisuals/Viewport/AnimalBuilder
+onready var visuals_anim_player = $Graphics/AnimalVisuals/AnimationPlayer
 onready var anim_player = $Graphics/AnimalVisuals/Viewport/AnimalBuilder.anim_player
 onready var health_manager = $HealthManager
 onready var graphics = $Graphics
@@ -46,6 +47,7 @@ var genes = null
 signal attack
 signal engaged
 
+	
 func _ready():
 	if genes == null:
 		animal_builder.build_random()
@@ -113,12 +115,16 @@ func _process(delta):
 			process_state_dead(delta)
 
 func set_state_idle():
+	if cur_state == STATES.DEAD:
+		return
 #	ranged_attack_timer.stop()
 	character_mover.set_move_vec(Vector3.ZERO)
 	cur_state = STATES.IDLE
 	anim_player.play("idle_loop")
 	
 func set_state_chase():
+	if cur_state == STATES.DEAD:
+		return
 	aggroed = true
 #	if seperate_ranged_attack and ranged_attack_timer.is_stopped():
 #		ranged_attack_timer.start()
@@ -128,6 +134,8 @@ func set_state_chase():
 	anim_player.play("walk_loop", 0.2)
 	
 func set_state_attack():
+	if cur_state == STATES.DEAD:
+		return
 	aggroed = true
 #	if seperate_ranged_attack and ranged_attack_timer.is_stopped():
 #		ranged_attack_timer.start()
@@ -144,6 +152,7 @@ func set_state_dead():
 	character_mover.freeze()
 	collision_shape.disabled = true
 	perform_drops()
+	visuals_anim_player.play("dead")
 
 func process_state_idle(_delta):
 	if can_see_player() and (aggro_on_sight or aggroed):
@@ -191,6 +200,9 @@ func hurt(damage: int, dir: Vector3):
 	if cur_state == STATES.IDLE:
 		set_state_chase()
 	health_manager.hurt(damage, dir)
+	if cur_state != STATES.DEAD:
+		print("play hurt")
+		visuals_anim_player.play("hurt")
 
 func disable_hitboxes():
 	pass

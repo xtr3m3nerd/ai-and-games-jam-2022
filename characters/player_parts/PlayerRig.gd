@@ -2,6 +2,8 @@ extends Node2D
 
 class_name PlayerRig
 
+signal fire
+
 enum FACIAL_EXPRESSION { ANGRY, HAPPY, DEAD, HEARTBROKEN }
 onready var expressions = {
 	FACIAL_EXPRESSION.ANGRY: $Root/Polygons/Face1,
@@ -53,3 +55,6 @@ func upgrade_rig(upgrade):
 			crowbar.show()
 		UPGRADES.SIGNSHIELD:
 			signshield.show()
+
+func emit_fire():
+	emit_signal("fire")

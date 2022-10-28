@@ -4,6 +4,7 @@ onready var animal_builder = $Viewport/AnimalBuilder
 onready var anim_player = $Viewport/AnimalBuilder/Skeleton2D/AnimationPlayer
 onready var quad = $ViewportQuad
 onready var viewport = $Viewport
+const width_buffer = 500.0
 
 func _ready():
 	var err = animal_builder.connect("animal_built", self, "on_animal_built")
@@ -24,8 +25,11 @@ func setup_viewport():
 	quad.material_override.albedo_texture = viewport.get_texture()
  
 func on_animal_built(_genes):
-	viewport.size = animal_builder.bounding_box.size
-	quad.mesh.size = animal_builder.bounding_box.size / 500
+	var size = animal_builder.bounding_box.size
+	animal_builder.global_transform.origin.x += width_buffer/2.0
+	size.x += width_buffer
+	viewport.size = size
+	quad.mesh.size = size / 500
 	quad.transform.origin.y = quad.mesh.size.y / 2.0
 	print("viewport: ", viewport.size)
 	print("quad: ", quad.mesh.size)

@@ -21,6 +21,8 @@ var bounding_box: Rect2
 const idle_bounce_dist = 30.0
 const head_rotate_dist = 3.0
 const leg_rotate_dist = 15.0
+const dead_leg_rotate_dist = 90.0
+const dead_head_rotate_dist = 60.0
 
 # body part polygons
 var body_part = null
@@ -59,23 +61,23 @@ func build_random():
 	build_animal(genes)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact"):
-		global_transform.origin = Vector2.ZERO
-		for polygon in polygons.get_children():
-			polygon.queue_free()
-			polygons.remove_child(polygon)
-		var genes = Genes.generate_random_genes()
-		build_animal(genes)
-	
-	if Input.is_action_just_pressed("move_forward"):
-		anim_player.play("walk_loop")
-		
-	if Input.is_action_just_pressed("move_backward"):
-		anim_player.play("idle_loop")
-		
-	
-	if Input.is_action_just_pressed("attack"):
-		anim_player.play("attack")
+#	if Input.is_action_just_pressed("interact"):
+#		global_transform.origin = Vector2.ZERO
+#		for polygon in polygons.get_children():
+#			polygon.queue_free()
+#			polygons.remove_child(polygon)
+#		var genes = Genes.generate_random_genes()
+#		build_animal(genes)
+#
+#	if Input.is_action_just_pressed("move_forward"):
+#		anim_player.play("walk_loop")
+#
+#	if Input.is_action_just_pressed("move_backward"):
+#		anim_player.play("idle_loop")
+#
+#
+#	if Input.is_action_just_pressed("attack"):
+#		anim_player.play("attack")
 	#print($Skeleton2D/Hip/Chest/Head.transform)
 	pass
 
@@ -140,7 +142,11 @@ func build_animal(genes):
 	attach_part_to_bone(eyebrows_part, "Hip/Chest/Head", m_head, m_chest)
 	attach_part_to_bone(front_leg_r_part, "Hip/Chest/FrontLegR", m_front_leg_r, m_chest)
 	attach_part_to_bone(front_leg_l_part, "Hip/Chest/FrontLegL", m_front_leg_l, m_chest)
-
+	
+	# Bounding Box
+	calculate_bounding_box()
+	build_bounding_box_visual()
+	
 	#Get bones
 	var hip_bone = skeleton.get_node("Hip")
 	var tail_bone = skeleton.get_node("Hip/Tail")
@@ -237,6 +243,7 @@ func build_animal(genes):
 	err = anim_player.add_animation("idle_loop", animation)
 	if err != 0:
 		print("ERROR:", err)
+	print("Build idle_loop")
 	anim_player.play("idle_loop")
 
 	animation = Animation.new()
@@ -294,16 +301,45 @@ func build_animal(genes):
 		print("ERROR:", err)
 
 	animation = Animation.new()
-	animation.length = 2.0
+	animation.length = 1.0
 	animation.loop = false
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip:position:y")
+	animation.track_insert_key(track_index, 0.0, hip_bone.rest.origin.y)
+	animation.track_insert_key(track_index, 1.0, bounding_box.size.y) # + hip_bone.rest.origin.y - rear_leg_r_bone.rest.origin.y)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/Chest/Head:position:x")
+	animation.track_insert_key(track_index, 0.0, head_bone.rest.origin.x)
+	animation.track_insert_key(track_index, 1.0, head_bone.rest.origin.x+idle_bounce_dist/2)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/Chest/Head:rotation_degrees")
+	animation.track_insert_key(track_index, 0.0, head_rotation)
+	animation.track_insert_key(track_index, 1.0, head_rotation+dead_head_rotate_dist)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/Tail:rotation_degrees")
+	animation.track_insert_key(track_index, 0.0, tail_rotation)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/RearLegR:rotation_degrees")
+	animation.track_insert_key(track_index, 0.0, rear_leg_r_rotation)
+	animation.track_insert_key(track_index, 1.0, rear_leg_r_rotation+dead_leg_rotate_dist)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/RearLegL:rotation_degrees")
+	animation.track_insert_key(track_index, 0.0, rear_leg_l_rotation)
+	animation.track_insert_key(track_index, 1.0, rear_leg_l_rotation+dead_leg_rotate_dist)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/Chest/FrontLegR:rotation_degrees")
+	animation.track_insert_key(track_index, 0.0, front_leg_r_rotation)
+	animation.track_insert_key(track_index, 1.0, front_leg_r_rotation-dead_leg_rotate_dist)
+	track_index = animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(track_index, "Hip/Chest/FrontLegL:rotation_degrees")
+	animation.track_insert_key(track_index, 0.0, front_leg_l_rotation)
+	animation.track_insert_key(track_index, 1.0, front_leg_l_rotation-dead_leg_rotate_dist)
 	err = anim_player.add_animation("die", animation)
 	if err != 0:
 		print("ERROR:", err)
 	
 	
 	#Move to origin
-	calculate_bounding_box()
-	build_bounding_box_visual()
 	global_transform.origin -= bounding_box.position
 	
 	emit_signal("animal_built", genes)

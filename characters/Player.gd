@@ -16,10 +16,17 @@ onready var pickup_manager = $PickupManager
 enum STATE { IDLE, WALKING, ATTACKING, BLOCKING, DEAD }
 var cur_state = STATE.IDLE
 var performing_action = false
+onready var visuals_anim_player = $Graphics/PlayerVisuals/AnimationPlayer
 onready var anim_player: AnimationPlayer = $Graphics/PlayerVisuals/Viewport/PlayerRig/AnimationPlayer
 onready var player_rig = $Graphics/PlayerVisuals/Viewport/PlayerRig
 
+var facing_right = false
+
 func _ready():
+	$DamageAreaLeft.bodies_to_exclude = [self]
+	$DamageAreaRight.bodies_to_exclude = [self]
+	$DamageAreaLeft.damage = 100
+	$DamageAreaRight.damage = 100
 	for upgrade in GameManager.player_data["applied_upgrades"]:
 		apply_upgrade(upgrade)
 	if is_1st_person:
@@ -29,6 +36,10 @@ func _ready():
 	var err = anim_player.connect("animation_finished", self, "on_animation_finished")
 	if err != 0:
 		print("ERROR: unable to connect to animation_finished: ", err)
+	
+	err = player_rig.connect("fire", self, "fire")
+	if err != 0:
+		print("ERROR: unable to connect to fire: ", err)
 	
 #	pickup_manager.connect("got_pickup", health_manager, "get_pickup")
 #	pickup_manager.connect("check_can_pickup", health_manager, "can_pickup")
@@ -87,7 +98,9 @@ func _process(_delta):
 	var mouse_pos = get_viewport().get_mouse_position()
 	var camera: Camera = get_viewport().get_camera()
 	var screen_space = camera.unproject_position(global_transform.origin)
-	player_rig.flip(mouse_pos.x > screen_space.x)
+	if facing_right != (mouse_pos.x > screen_space.x):
+		facing_right = mouse_pos.x > screen_space.x
+		player_rig.flip(facing_right)
 	
 func _physics_process(_delta):
 	camera_3rd.global_transform.origin = lerp(camera_3rd.global_transform.origin, global_transform.origin, camera_damp)
@@ -102,6 +115,7 @@ func _input(event):
 func hurt(damage, dir):
 	print("hurt: ",damage)
 	health_manager.hurt(damage, dir)
+	visuals_anim_player.play("hurt")
 	
 func heal(amount):
 	health_manager.heal(amount)
@@ -166,6 +180,12 @@ func on_animation_finished(_anim_name):
 
 func apply_upgrade(upgrade):
 	player_rig.upgrade_rig(upgrade.get("rig_change"))
+
+func fire():
+	if facing_right:
+		$DamageAreaRight.fire()
+	else:
+		$DamageAreaLeft.fire()
 	
 #func spawn_damage_numbers(damage):
 #	spawn_numbers(damage, Color.red)

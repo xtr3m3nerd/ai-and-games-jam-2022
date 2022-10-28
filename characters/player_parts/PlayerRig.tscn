@@ -441,6 +441,20 @@ tracks/11/keys = {
 "update": 0,
 "values": [ 0.0, 11.1001, 0.0 ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "emit_fire"
+} ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "block"
