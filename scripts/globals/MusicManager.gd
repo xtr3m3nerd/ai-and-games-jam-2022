@@ -7,7 +7,7 @@ onready var track2: AudioStreamPlayer = $Track2
 var menu_music = load("res://assets/sounds/music/hippotato_game_menu_final.wav")
 var story_music = load("res://assets/sounds/music/hippotato_game_intro_draft.wav")
 var lab_music = load("res://assets/sounds/music/hippotato_game_menu_final.wav")
-var battle_music = load("res://assets/sounds/music/hippotato_game_battle_theme_less_spacey_2.wav")
+var battle_music = load("res://assets/sounds/music/hippotato_game_battle_theme_final.wav")
 
 enum MUSIC { MENU, STORY, LAB, BATTLE }
 

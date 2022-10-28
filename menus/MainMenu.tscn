@@ -81,5 +81,5 @@ text = "Quit"
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_button_pressed"]
