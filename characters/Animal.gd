@@ -47,6 +47,7 @@ var genes = null
 signal attack
 signal engaged
 
+var facing_right = true
 	
 func _ready():
 	if genes == null:
@@ -104,6 +105,10 @@ func _ready():
 	set_state_idle()
 
 func _process(delta):
+	if cur_state != STATES.DEAD:
+		if global_transform.origin.y < -20:
+			hurt(1000000, Vector3.ZERO)
+			
 	match cur_state:
 		STATES.IDLE:
 			process_state_idle(delta)
@@ -113,6 +118,7 @@ func _process(delta):
 			process_state_attack(delta)
 		STATES.DEAD:
 			process_state_dead(delta)
+	
 
 func set_state_idle():
 	if cur_state == STATES.DEAD:
@@ -176,6 +182,10 @@ func process_state_chase(delta):
 	var dir = goal_pos - our_pos
 	dir.y = 0
 	character_mover.set_move_vec(dir)
+	
+	if facing_right != (dir.x < 0):
+		facing_right = (dir.x < 0)
+		animal_builder.flip(facing_right)
 	
 	face_dir(dir, delta)
 

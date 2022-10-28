@@ -3,6 +3,8 @@ extends Node
 var quit_popup: Resource = load("res://menus/QuitPopup.tscn")
 var is_quiting = false
 
+var first_spawn = true
+
 signal player_updated(_player_data)
 
 func modify_player_data(key, value):

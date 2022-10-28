@@ -51,11 +51,11 @@ position = Vector2( 944, 160 )
 
 [node name="HippoTail" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
-polygon = PoolVector2Array( 79.6748, 315.447, 62.6016, 354.472, 38.2114, 432.52, 76.4228, 451.22, 108.943, 428.455, 122.764, 337.398 )
-uv = PoolVector2Array( 79.6748, 315.447, 62.6016, 354.472, 38.2114, 432.52, 76.4228, 451.22, 108.943, 428.455, 122.764, 337.398 )
+polygon = PoolVector2Array( 133.268, 276.842, 66.3323, 302.648, 38.2114, 432.52, 76.4228, 451.22, 108.943, 428.455, 181.655, 326.842 )
+uv = PoolVector2Array( 133.268, 276.842, 66.3323, 302.648, 38.2114, 432.52, 76.4228, 451.22, 108.943, 428.455, 181.655, 326.842 )
 
 [node name="Mount" type="Position2D" parent="HippoTail"]
-position = Vector2( 96, 352 )
+position = Vector2( 129, 329 )
 
 [node name="HippoHead" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
@@ -85,7 +85,7 @@ uv = PoolVector2Array( 1259, 418, 1192, 444, 1120, 516, 1086, 634, 1096, 770, 11
 position = Vector2( 1277, 874 )
 
 [node name="Tail" type="Position2D" parent="PenguinBody"]
-position = Vector2( 1177, 897 )
+position = Vector2( 1201, 877 )
 
 [node name="Chest" type="Position2D" parent="PenguinBody"]
 position = Vector2( 1293, 560 )
@@ -107,11 +107,11 @@ position = Vector2( 1360, 583 )
 
 [node name="PenguinRearLeg" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
-polygon = PoolVector2Array( 1273.87, 1080.55, 1134.23, 1081.45, 1126.13, 1120.19, 1264.86, 1133.71 )
-uv = PoolVector2Array( 1273.87, 1080.55, 1134.23, 1081.45, 1126.13, 1120.19, 1264.86, 1133.71 )
+polygon = PoolVector2Array( 1185.65, 1049.21, 1402.71, 1044.51, 1387.41, 1139.8, 1154.47, 1122.74 )
+uv = PoolVector2Array( 1185.65, 1049.21, 1402.71, 1044.51, 1387.41, 1139.8, 1154.47, 1122.74 )
 
 [node name="Mount" type="Position2D" parent="PenguinRearLeg"]
-position = Vector2( 1184, 1086 )
+position = Vector2( 1275, 1050 )
 
 [node name="PenguinFrontLeg" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
@@ -123,11 +123,11 @@ position = Vector2( 1032, 727 )
 
 [node name="PenguinTail" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
-polygon = PoolVector2Array( 1014.41, 994.068, 948.649, 1093.17, 974.775, 1114.79, 1109.91, 1104.88 )
-uv = PoolVector2Array( 1014.41, 994.068, 948.649, 1093.17, 974.775, 1114.79, 1109.91, 1104.88 )
+polygon = PoolVector2Array( 1108.59, 968.035, 1060.94, 963.329, 1020.94, 980.976, 1003.3, 1019.21, 945.061, 1091.56, 968.002, 1115.68, 1105.06, 1109.8, 1149.77, 1067.45, 1155.06, 1013.92 )
+uv = PoolVector2Array( 1108.59, 968.035, 1060.94, 963.329, 1020.94, 980.976, 1003.3, 1019.21, 945.061, 1091.56, 968.002, 1115.68, 1105.06, 1109.8, 1149.77, 1067.45, 1155.06, 1013.92 )
 
 [node name="Mount" type="Position2D" parent="PenguinTail"]
-position = Vector2( 1033, 1066 )
+position = Vector2( 1078, 1030 )
 
 [node name="PenguinHead" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
@@ -195,8 +195,8 @@ position = Vector2( 3368, 111 )
 
 [node name="GiraffeTail" type="Polygon2D" parent="."]
 texture = ExtResource( 1 )
-polygon = PoolVector2Array( 2169.7, 526.533, 2160.61, 428.048, 2065.15, 347.745, 2010.61, 373.503, 2065.15, 546.23, 2166.67, 620.473 )
-uv = PoolVector2Array( 2169.7, 526.533, 2160.61, 428.048, 2065.15, 347.745, 2010.61, 373.503, 2065.15, 546.23, 2166.67, 620.473 )
+polygon = PoolVector2Array( 2238.22, 519.093, 2160.61, 428.048, 2065.15, 347.745, 2010.61, 373.503, 2065.15, 546.23, 2166.67, 620.473 )
+uv = PoolVector2Array( 2238.22, 519.093, 2160.61, 428.048, 2065.15, 347.745, 2010.61, 373.503, 2065.15, 546.23, 2166.67, 620.473 )
 
 [node name="Mount" type="Position2D" parent="GiraffeTail"]
 position = Vector2( 2127, 504 )
@@ -290,4 +290,293 @@ polygon = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 
 uv = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
 
 [node name="Mount" type="Position2D" parent="CheetahEyebrows"]
+position = Vector2( 133, 146 )
+
+[node name="CrocodileBody" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 2372.84, 1149.13, 1676.5, 1143.03, 1467.97, 1418.64, 1487.48, 1467.42, 2166.75, 1479.61, 2377.72, 1190.59 )
+uv = PoolVector2Array( 2372.84, 1149.13, 1676.5, 1143.03, 1467.97, 1418.64, 1487.48, 1467.42, 2166.75, 1479.61, 2377.72, 1190.59 )
+
+[node name="Hip" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 1707, 1293 )
+
+[node name="Tail" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 1652, 1287 )
+
+[node name="Chest" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 2075, 1285 )
+
+[node name="Head" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 2263, 1293 )
+
+[node name="RearLegR" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 1602, 1427 )
+
+[node name="RearLegL" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 1817, 1257 )
+
+[node name="FrontLegR" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 1989, 1435 )
+
+[node name="FrontLegL" type="Position2D" parent="CrocodileBody"]
+position = Vector2( 2165, 1268 )
+
+[node name="CrocodileRearLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 1835.42, 1501.57, 1786.64, 1511.32, 1720.79, 1546.69, 1725.67, 1638.15, 1725.67, 1717.42, 2002.5, 1716.2, 1956.15, 1579.61, 1930.54, 1524.74 )
+uv = PoolVector2Array( 1835.42, 1501.57, 1786.64, 1511.32, 1720.79, 1546.69, 1725.67, 1638.15, 1725.67, 1710.1, 2002.5, 1716.2, 1956.15, 1579.61, 1930.54, 1524.74 )
+
+[node name="Mount" type="Position2D" parent="CrocodileRearLeg"]
+position = Vector2( 1837, 1566 )
+
+[node name="CrocodileFrontLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 2039.08, 1525.96, 2067.13, 1722.3, 2265.91, 1718.64, 2228.11, 1633.27, 2232.98, 1529.61, 2137.86, 1505.22 )
+uv = PoolVector2Array( 2039.08, 1525.96, 2067.13, 1722.3, 2265.91, 1718.64, 2228.11, 1633.27, 2232.98, 1529.61, 2137.86, 1505.22 )
+
+[node name="Mount" type="Position2D" parent="CrocodileFrontLeg"]
+position = Vector2( 2134, 1566 )
+
+[node name="CrocodileTail" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 1304.93, 1185.71, 1181.76, 1272.3, 1158.59, 1383.27, 1176.89, 1713.76, 1251.28, 1791.81, 1426.89, 1783.27, 1628.11, 1728.4, 1690.3, 1645.47, 1686.64, 1561.32, 1596.4, 1507.66, 1480.54, 1469.86, 1348.84, 1340.59 )
+uv = PoolVector2Array( 1304.93, 1185.71, 1181.76, 1272.3, 1158.59, 1383.27, 1176.89, 1713.76, 1251.28, 1791.81, 1426.89, 1783.27, 1628.11, 1728.4, 1690.3, 1645.47, 1686.64, 1561.32, 1596.4, 1507.66, 1480.54, 1469.86, 1348.84, 1340.59 )
+
+[node name="Mount" type="Position2D" parent="CrocodileTail"]
+position = Vector2( 1401, 1606 )
+
+[node name="CrocodileHead" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 2574.39, 1224.71, 2440.6, 1307.14, 2317.63, 1466.6, 2363.58, 1603.09, 2518.98, 1624.71, 2610.87, 1585.52, 2791.95, 1601.74, 2894.66, 1585.52, 2966.28, 1500.38, 2920.33, 1440.92, 2710.87, 1344.98, 2706.82, 1263.9, 2633.85, 1219.3 )
+uv = PoolVector2Array( 2574.39, 1224.71, 2440.6, 1307.14, 2317.63, 1466.6, 2363.58, 1603.09, 2518.98, 1624.71, 2610.87, 1585.52, 2791.95, 1601.74, 2894.66, 1585.52, 2966.28, 1500.38, 2920.33, 1440.92, 2710.87, 1344.98, 2706.82, 1263.9, 2633.85, 1219.3 )
+
+[node name="Mount" type="Position2D" parent="CrocodileHead"]
+position = Vector2( 2489, 1412 )
+
+[node name="Eyebrows" type="Position2D" parent="CrocodileHead"]
+position = Vector2( 2583, 1351 )
+
+[node name="CrocodileEyebrows" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 2387.9, 1288.22, 2224.39, 1396.33, 2263.58, 1447.68, 2410.87, 1346.33 )
+uv = PoolVector2Array( 2387.9, 1288.22, 2224.39, 1396.33, 2263.58, 1447.68, 2410.87, 1346.33 )
+
+[node name="Mount" type="Position2D" parent="CrocodileEyebrows"]
+position = Vector2( 2335, 1405 )
+
+[node name="HareBody" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 2931.14, 842.276, 2460.87, 1057.14, 2463.58, 1182.82, 2937.9, 1289.57, 3077.09, 1257.14, 3159.52, 1131.46, 3164.93, 969.303, 3068.98, 872.005 )
+uv = PoolVector2Array( 2931.14, 842.276, 2460.87, 1057.14, 2463.58, 1182.82, 2937.9, 1289.57, 3077.09, 1257.14, 3159.52, 1131.46, 3164.93, 969.303, 3068.98, 872.005 )
+
+[node name="Hip" type="Position2D" parent="HareBody"]
+position = Vector2( 2689, 1093 )
+
+[node name="Tail" type="Position2D" parent="HareBody"]
+position = Vector2( 2538, 1111 )
+
+[node name="Chest" type="Position2D" parent="HareBody"]
+position = Vector2( 2964, 1055 )
+
+[node name="Head" type="Position2D" parent="HareBody"]
+position = Vector2( 3083, 991 )
+
+[node name="RearLegR" type="Position2D" parent="HareBody"]
+position = Vector2( 2641, 1165 )
+
+[node name="RearLegL" type="Position2D" parent="HareBody"]
+position = Vector2( 2722, 1140 )
+
+[node name="FrontLegR" type="Position2D" parent="HareBody"]
+position = Vector2( 2931, 1179 )
+
+[node name="FrontLegL" type="Position2D" parent="HareBody"]
+position = Vector2( 3001, 1143 )
+
+[node name="HareRearLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3631.86, 107.887, 3545.3, 113.857, 3490.07, 234.752, 3503.5, 401.916, 3688.58, 428.782, 3837.83, 386.991, 3821.41, 324.304, 3705, 94.4537 )
+uv = PoolVector2Array( 3631.86, 107.887, 3545.3, 113.857, 3490.07, 234.752, 3503.5, 401.916, 3688.58, 428.782, 3837.83, 386.991, 3821.41, 324.304, 3705, 94.4537 )
+
+[node name="Mount" type="Position2D" parent="HareRearLeg"]
+position = Vector2( 3634, 193 )
+
+[node name="HareFrontLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3936.34, 81.0209, 3819.92, 115.349, 3876.64, 422.812, 4051.27, 428.782, 4058.73, 334.752, 3996.04, 92.9612 )
+uv = PoolVector2Array( 3936.34, 81.0209, 3819.92, 115.349, 3876.64, 422.812, 4051.27, 428.782, 4058.73, 334.752, 3996.04, 92.9612 )
+
+[node name="Mount" type="Position2D" parent="HareFrontLeg"]
+position = Vector2( 3926, 180 )
+
+[node name="HareTail" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3226.01, 698.943, 3009.88, 806.202, 3218.75, 880.395, 3302.62, 821.524, 3292.14, 743.298 )
+uv = PoolVector2Array( 3226.01, 698.943, 3010.69, 802.169, 3218.75, 880.395, 3302.62, 821.524, 3292.14, 743.298 )
+
+[node name="Mount" type="Position2D" parent="HareTail"]
+position = Vector2( 3225, 790 )
+
+[node name="HareHead" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3537.3, 507.814, 3939.72, 513.46, 3883.27, 853.782, 3976.82, 1131.2, 3880.04, 1202.17, 3592.14, 1207.81, 3483.27, 1098.94, 3608.27, 842.492 )
+uv = PoolVector2Array( 3537.3, 507.814, 3939.72, 513.46, 3883.27, 853.782, 3976.82, 1131.2, 3880.04, 1202.17, 3592.14, 1207.81, 3483.27, 1098.94, 3608.27, 842.492 )
+
+[node name="Mount" type="Position2D" parent="HareHead"]
+position = Vector2( 3734, 1077 )
+
+[node name="Eyebrows" type="Position2D" parent="HareHead"]
+position = Vector2( 3737, 958 )
+
+[node name="HareEyebrows" type="Polygon2D" parent="."]
+position = Vector2( 0, 3 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
+uv = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
+
+[node name="Mount" type="Position2D" parent="HareEyebrows"]
+position = Vector2( 133, 146 )
+
+[node name="BearBody" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 2753.3, 1701.86, 2575.28, 1755.7, 2377.47, 1899.66, 2350, 1989.77, 2387.36, 2091.97, 2777.47, 2179.88, 2954.4, 2120.54, 3048.9, 1959, 2989.56, 1775.48, 2870.88, 1700.76 )
+uv = PoolVector2Array( 2753.3, 1701.86, 2575.28, 1755.7, 2377.47, 1899.66, 2350, 1989.77, 2387.36, 2091.97, 2777.47, 2179.88, 2954.4, 2120.54, 3048.9, 1959, 2989.56, 1775.48, 2870.88, 1700.76 )
+
+[node name="Hip" type="Position2D" parent="BearBody"]
+position = Vector2( 2537, 1974 )
+
+[node name="Tail" type="Position2D" parent="BearBody"]
+position = Vector2( 2399, 1992 )
+
+[node name="Chest" type="Position2D" parent="BearBody"]
+position = Vector2( 2833, 1933 )
+
+[node name="Head" type="Position2D" parent="BearBody"]
+position = Vector2( 2947, 1861 )
+
+[node name="RearLegR" type="Position2D" parent="BearBody"]
+position = Vector2( 2500, 2062 )
+
+[node name="RearLegL" type="Position2D" parent="BearBody"]
+position = Vector2( 2591, 2040 )
+
+[node name="FrontLegR" type="Position2D" parent="BearBody"]
+position = Vector2( 2798, 2057 )
+
+[node name="FrontLegL" type="Position2D" parent="BearBody"]
+position = Vector2( 2886, 2016 )
+
+[node name="BearRearLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3373.08, 1708.45, 3280.77, 1745.81, 3246.7, 1790.87, 3233.52, 1885.37, 3277.47, 1940.32, 3309.34, 2018.34, 3312.64, 2076.58, 3389.56, 2101.86, 3455.5, 2083.18, 3465.39, 2032.63, 3440.11, 1978.78, 3493.96, 1872.19, 3492.86, 1782.08 )
+uv = PoolVector2Array( 3373.08, 1708.45, 3280.77, 1745.81, 3246.7, 1790.87, 3233.52, 1885.37, 3277.47, 1940.32, 3309.34, 2018.34, 3312.64, 2076.58, 3389.56, 2101.86, 3455.5, 2083.18, 3465.39, 2032.63, 3440.11, 1978.78, 3493.96, 1872.19, 3492.86, 1782.08 )
+
+[node name="Mount" type="Position2D" parent="BearRearLeg"]
+position = Vector2( 3370, 1824 )
+
+[node name="BearFrontLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3702.75, 1730.43, 3637.91, 1744.71, 3618.13, 1806.25, 3644.51, 1955.7, 3695.06, 2090.87, 3769.78, 2100.76, 3823.63, 2076.58, 3818.13, 2023.83, 3795.06, 1837.02, 3768.68, 1741.42 )
+uv = PoolVector2Array( 3702.75, 1730.43, 3637.91, 1744.71, 3618.13, 1806.25, 3644.51, 1955.7, 3695.06, 2090.87, 3769.78, 2100.76, 3823.63, 2076.58, 3818.13, 2023.83, 3795.06, 1837.02, 3768.68, 1741.42 )
+
+[node name="Mount" type="Position2D" parent="BearFrontLeg"]
+position = Vector2( 3704, 1821 )
+
+[node name="BearTail" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3225.83, 1707.35, 3047.8, 1679.88, 3033.52, 1741.42, 3200.55, 1788.67 )
+uv = PoolVector2Array( 3225.83, 1707.35, 3047.8, 1679.88, 3033.52, 1741.42, 3200.55, 1788.67 )
+
+[node name="Mount" type="Position2D" parent="BearTail"]
+position = Vector2( 3204, 1744 )
+
+[node name="BearHead" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 3568.68, 1299.02, 3399.45, 1299.02, 3365.39, 1395.73, 3366.48, 1594.63, 3529.12, 1690.23, 3708.24, 1619.9, 3747.8, 1377.04, 3736.81, 1300.12 )
+uv = PoolVector2Array( 3568.68, 1299.02, 3399.45, 1299.02, 3365.39, 1395.73, 3366.48, 1594.63, 3529.12, 1690.23, 3708.24, 1619.9, 3747.8, 1377.04, 3736.81, 1300.12 )
+
+[node name="Mount" type="Position2D" parent="BearHead"]
+position = Vector2( 3549, 1525 )
+
+[node name="Eyebrows" type="Position2D" parent="BearHead"]
+position = Vector2( 3549, 1447 )
+
+[node name="BearEyebrows" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
+uv = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
+
+[node name="Mount" type="Position2D" parent="BearEyebrows"]
+position = Vector2( 133, 146 )
+
+[node name="TortoiseBody" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 1066.28, 1959.93, 889.452, 1955.05, 708.965, 2000.17, 499.209, 2251.39, 704.087, 2448.95, 961.404, 2511.15, 1174.82, 2466.03, 1319.94, 2355.05, 1501.65, 2324.56, 1573.6, 2230.66, 1506.53, 2123.34, 1328.48, 2087.98 )
+uv = PoolVector2Array( 1066.28, 1959.93, 889.452, 1955.05, 708.965, 2000.17, 499.209, 2251.39, 704.087, 2448.95, 961.404, 2511.15, 1174.82, 2466.03, 1319.94, 2355.05, 1501.65, 2324.56, 1573.6, 2230.66, 1506.53, 2123.34, 1328.48, 2087.98 )
+
+[node name="Hip" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 766, 2207 )
+
+[node name="Tail" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 623, 2257 )
+
+[node name="Chest" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 1140, 2202 )
+
+[node name="Head" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 1444, 2130 )
+
+[node name="RearLegR" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 769, 2385 )
+
+[node name="RearLegL" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 876, 2354 )
+
+[node name="FrontLegR" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 1146, 2389 )
+
+[node name="FrontLegL" type="Position2D" parent="TortoiseBody"]
+position = Vector2( 1232, 2333 )
+
+[node name="TortoiseRearLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 676.15, 2546.14, 578.853, 2554.24, 515.339, 2625.87, 501.826, 2758.3, 512.636, 2900.19, 620.745, 2928.57, 707.231, 2908.3, 713.988, 2835.33, 738.312, 2600.19 )
+uv = PoolVector2Array( 676.15, 2546.14, 578.853, 2554.24, 515.339, 2625.87, 501.826, 2758.3, 512.636, 2900.19, 620.745, 2928.57, 707.231, 2908.3, 713.988, 2835.33, 738.312, 2600.19 )
+
+[node name="Mount" type="Position2D" parent="TortoiseRearLeg"]
+position = Vector2( 667, 2616 )
+
+[node name="TortoiseFrontLeg" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 963.988, 2554.24, 941.015, 2617.76, 1026.15, 2716.41, 1054.53, 2897.49, 1172.1, 2917.76, 1243.72, 2870.46, 1230.2, 2812.35, 1166.69, 2797.49, 1168.04, 2624.51, 1131.56, 2550.19 )
+uv = PoolVector2Array( 963.988, 2554.24, 941.015, 2617.76, 1026.15, 2716.41, 1054.53, 2897.49, 1172.1, 2917.76, 1243.72, 2870.46, 1230.2, 2812.35, 1166.69, 2797.49, 1168.04, 2624.51, 1131.56, 2550.19 )
+
+[node name="Mount" type="Position2D" parent="TortoiseFrontLeg"]
+position = Vector2( 1017, 2612 )
+
+[node name="TortoiseTail" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 580.204, 2428.57, 480.204, 2429.92, 262.636, 2608.3, 376.15, 2617.76, 612.636, 2539.38 )
+uv = PoolVector2Array( 580.204, 2428.57, 480.204, 2429.92, 262.636, 2608.3, 376.15, 2617.76, 612.636, 2539.38 )
+
+[node name="Mount" type="Position2D" parent="TortoiseTail"]
+position = Vector2( 530, 2491 )
+
+[node name="TortoiseHead" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 1870.74, 1988.03, 1705.88, 2033.97, 1632.91, 2212.35, 1704.53, 2378.57, 1863.99, 2459.65, 2055.88, 2378.57, 2124.8, 2217.76, 2055.88, 2044.79 )
+uv = PoolVector2Array( 1870.74, 1988.03, 1705.88, 2033.97, 1632.91, 2212.35, 1704.53, 2378.57, 1863.99, 2459.65, 2055.88, 2378.57, 2124.8, 2217.76, 2055.88, 2044.79 )
+
+[node name="Mount" type="Position2D" parent="TortoiseHead"]
+position = Vector2( 1877, 2250 )
+
+[node name="Eyebrows" type="Position2D" parent="TortoiseHead"]
+position = Vector2( 1872, 2118 )
+
+[node name="TortoiseEyebrows" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
+uv = PoolVector2Array( 66.6667, 87.8049, 67.4797, 140.65, 199.187, 140.65, 198.374, 83.7398 )
+
+[node name="Mount" type="Position2D" parent="TortoiseEyebrows"]
 position = Vector2( 133, 146 )

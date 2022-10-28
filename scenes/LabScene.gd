@@ -26,6 +26,10 @@ var camera = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if GameManager.first_spawn:
+		GameManager.first_spawn = false
+	else: 
+		player.global_transform.origin = $DoorSpawn.global_transform.origin
 	camera = get_tree().get_nodes_in_group("snap_to_camera")[0]
 	if camera == null:
 		print("ERROR: Could not find snap_to_camera")

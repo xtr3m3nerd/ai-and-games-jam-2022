@@ -60,6 +60,16 @@ func build_random():
 	var genes = Genes.generate_random_genes()
 	build_animal(genes)
 
+
+func flip(_is_flipped):
+	return
+#	if is_flipped:
+#		scale.x = -abs(scale.x)
+#		position.x = bounding_box.size.x
+#	else:
+#		scale.x = abs(scale.x)
+#		position.x = 0
+
 func _process(_delta):
 #	if Input.is_action_just_pressed("interact"):
 #		global_transform.origin = Vector2.ZERO

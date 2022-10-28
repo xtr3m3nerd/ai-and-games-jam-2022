@@ -76,8 +76,11 @@ transform = Transform( -1, 1.40155e-09, -8.79277e-08, -1.49012e-08, 0.982713, 0.
 [node name="UpgradeStandPos" type="Spatial" parent="Environment"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.45408, 0.245527, 4.42598 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="DoorSpawn" type="Spatial" parent="."]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, -20.5983 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 0, 0, 0 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
