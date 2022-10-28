@@ -12,11 +12,8 @@ script = ExtResource( 1 )
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-
-[node name="HippotatoMenuGraphic" type="Sprite" parent="Background"]
-position = Vector2( 513, 301 )
-scale = Vector2( 0.807813, 0.85 )
 texture = ExtResource( 3 )
+expand = true
 
 [node name="Title" type="Control" parent="."]
 visible = false
@@ -89,5 +86,5 @@ text = "Quit"
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

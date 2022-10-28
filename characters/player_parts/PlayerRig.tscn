@@ -1467,6 +1467,7 @@ uv = PoolVector2Array( 364.815, 701.701, 376.852, 728.553, 897.222, 734.108, 912
 bones = [ "Body", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/Chest", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/Chest/Head", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/Chest/Head/Face", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/Chest/LeftArm", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/Chest/LeftArm/LeftHand", PoolRealArray( 1, 1, 1, 1, 1, 1 ), "Body/Chest/RightArm", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/Chest/RightArm/RightHand", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/LeftLeg", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/LeftLeg/LeftFoot", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/RightLeg", PoolRealArray( 0, 0, 0, 0, 0, 0 ), "Body/RightLeg/RightFoot", PoolRealArray( 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Root"]
+visible = false
 
 [node name="Body" type="Bone2D" parent="Root/Skeleton2D"]
 position = Vector2( 0, -205.245 )

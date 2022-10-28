@@ -36,11 +36,11 @@ var eyebrows_part = null
 
 
 var test_genes = {
-	"body": Genes.ANIMALS.PENGUIN,
+	"body": Genes.ANIMALS.HIPPO,
 	"head": Genes.ANIMALS.HIPPO,
-	"front_legs": Genes.ANIMALS.GIRAFFE,
-	"rear_legs": Genes.ANIMALS.PENGUIN,
-	"tail": Genes.ANIMALS.PENGUIN,
+	"front_legs": Genes.ANIMALS.HIPPO,
+	"rear_legs": Genes.ANIMALS.HIPPO,
+	"tail": Genes.ANIMALS.HIPPO,
 	"diet": Genes.DIETS.HERBIVORE,
 	"player_response": Genes.RESPONSE.AGRESSIVE,
 	"animal_response_similar": Genes.RESPONSE.CURIOUS,

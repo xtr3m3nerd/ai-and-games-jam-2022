@@ -9,7 +9,7 @@ onready var animals_parent = $Navigation/Animals
 
 var is_at_exit = false
 
-export var spawn_range: Vector2 = Vector2(50,50)
+export var spawn_range: Vector2 = Vector2(45,45)
 export var scale_range: Vector2 = Vector2(1.0,1.0)
 var rng = RandomNumberGenerator.new()
 export var seed_to_use = 100
