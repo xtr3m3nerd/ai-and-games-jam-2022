@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://menus/Controls/SceneButton.gd" type="Script" id=2]
 [ext_resource path="res://assets/hippotato_menu_graphic.png" type="Texture" id=3]
 
+[sub_resource type="Theme" id=1]
+
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 1.0
+margin_bottom = 1.0
 texture = ExtResource( 3 )
 expand = true
 
@@ -38,19 +43,9 @@ margin_top = 49.0
 margin_right = 433.0
 margin_bottom = 167.0
 
-[node name="Test" type="Button" parent="Buttons"]
+[node name="StartButton" type="Button" parent="Buttons"]
 margin_right = 209.0
 margin_bottom = 20.0
-focus_neighbour_top = NodePath("../QuitButton")
-text = "Test"
-script = ExtResource( 2 )
-scene_to_load = "res://characters/animal_parts/AnimalBuilder.tscn"
-load_type = 1
-
-[node name="StartButton" type="Button" parent="Buttons"]
-margin_top = 24.0
-margin_right = 209.0
-margin_bottom = 44.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Play Game"
 script = ExtResource( 2 )
@@ -58,31 +53,30 @@ scene_to_load = "res://scenes/LabScene.tscn"
 load_type = 1
 
 [node name="OptionsButton" type="Button" parent="Buttons"]
-margin_top = 48.0
+margin_top = 24.0
 margin_right = 209.0
-margin_bottom = 68.0
+margin_bottom = 44.0
 text = "Options"
 script = ExtResource( 2 )
 scene_to_load = "res://menus/OptionsMenu.tscn"
 load_type = 2
 
 [node name="CreditsButton" type="Button" parent="Buttons"]
-margin_top = 72.0
+margin_top = 48.0
 margin_right = 209.0
-margin_bottom = 92.0
+margin_bottom = 68.0
 text = "Credits"
 script = ExtResource( 2 )
 scene_to_load = "res://menus/CreditsMenu.tscn"
 load_type = 2
 
 [node name="QuitButton" type="Button" parent="Buttons"]
-margin_top = 96.0
+margin_top = 72.0
 margin_right = 209.0
-margin_bottom = 116.0
+margin_bottom = 92.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Quit"
 
-[connection signal="pressed" from="Buttons/Test" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/StartButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/OptionsButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Buttons/CreditsButton" to="." method="_on_button_pressed"]
