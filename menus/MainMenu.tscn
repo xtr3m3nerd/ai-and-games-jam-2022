@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://menus/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://menus/Controls/SceneButton.gd" type="Script" id=2]
+[ext_resource path="res://assets/hippotato_menu_graphic.png" type="Texture" id=3]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -12,11 +13,18 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="HippotatoMenuGraphic" type="Sprite" parent="Background"]
+position = Vector2( 513, 301 )
+scale = Vector2( 0.807813, 0.85 )
+texture = ExtResource( 3 )
+
 [node name="Title" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 margin_bottom = 300.0
 
 [node name="TitleText" type="Label" parent="Title"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 text = "The Last of the Hippotatoes"
@@ -28,13 +36,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -40.0
-margin_top = -46.0
-margin_right = 40.0
-margin_bottom = 46.0
+margin_left = 224.0
+margin_top = 49.0
+margin_right = 433.0
+margin_bottom = 167.0
 
 [node name="Test" type="Button" parent="Buttons"]
-margin_right = 80.0
+margin_right = 209.0
 margin_bottom = 20.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Test"
@@ -44,7 +52,7 @@ load_type = 1
 
 [node name="StartButton" type="Button" parent="Buttons"]
 margin_top = 24.0
-margin_right = 80.0
+margin_right = 209.0
 margin_bottom = 44.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Play Game"
@@ -54,7 +62,7 @@ load_type = 1
 
 [node name="OptionsButton" type="Button" parent="Buttons"]
 margin_top = 48.0
-margin_right = 80.0
+margin_right = 209.0
 margin_bottom = 68.0
 text = "Options"
 script = ExtResource( 2 )
@@ -63,7 +71,7 @@ load_type = 2
 
 [node name="CreditsButton" type="Button" parent="Buttons"]
 margin_top = 72.0
-margin_right = 80.0
+margin_right = 209.0
 margin_bottom = 92.0
 text = "Credits"
 script = ExtResource( 2 )
@@ -72,7 +80,7 @@ load_type = 2
 
 [node name="QuitButton" type="Button" parent="Buttons"]
 margin_top = 96.0
-margin_right = 80.0
+margin_right = 209.0
 margin_bottom = 116.0
 focus_neighbour_bottom = NodePath("../StartButton")
 text = "Quit"
