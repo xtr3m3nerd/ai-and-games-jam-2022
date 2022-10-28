@@ -49,7 +49,7 @@ margin_bottom = 20.0
 focus_neighbour_top = NodePath("../QuitButton")
 text = "Play Game"
 script = ExtResource( 2 )
-scene_to_load = "res://scenes/LabScene.tscn"
+scene_to_load = "res://scenes/StoryIntroScene.tscn"
 load_type = 1
 
 [node name="OptionsButton" type="Button" parent="Buttons"]

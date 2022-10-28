@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hippotato_game_intro_final.wav-a877a2f7625ca59053daff82e4cda9fa.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/hippotato_game_intro_final.wav"
+dest_files=[ "res://.import/hippotato_game_intro_final.wav-a877a2f7625ca59053daff82e4cda9fa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
