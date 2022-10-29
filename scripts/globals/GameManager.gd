@@ -53,7 +53,7 @@ var available_upgrades = [
 		"amount": 5,
 		"description": "Restore 5 HP",
 		"stat": "hp",
-		"image": "image_path",
+		"image": "res://assets/raw_assets/repair_upgrade_icon.png",
 		"persistant": true,
 	},
 	{
@@ -63,7 +63,7 @@ var available_upgrades = [
 		"description": "Increased Speed",
 		"stat": "speed",
 		"rig_change": PlayerRig.UPGRADES.WHEELS,
-		"image": "image_path",
+		"image": "res://assets/raw_assets/wheels_upgrade_icon.png",
 	},
 	{
 		"name": "Crow Bar",
@@ -72,7 +72,7 @@ var available_upgrades = [
 		"description": "Increased Damage",
 		"stat": "melee_damage",
 		"rig_change": PlayerRig.UPGRADES.CROWBAR,
-		"image": "image_path",
+		"image": "res://assets/raw_assets/crowbar_upgrade_icon.png",
 	},
 	{
 		"name": "Sign Shield",
@@ -81,7 +81,7 @@ var available_upgrades = [
 		"description": "Increased Defense",
 		"stat": "blocking",
 		"rig_change": PlayerRig.UPGRADES.SIGNSHIELD,
-		"image": "image_path",
+		"image": "res://assets/raw_assets/sign_upgrade_icon.png",
 	},
 	{
 		"name": "Metal Chassis",
@@ -90,7 +90,7 @@ var available_upgrades = [
 		"description": "Increase Max HP",
 		"stat": "maxhp",
 		"rig_change": PlayerRig.UPGRADES.METALBODY,
-		"image": "image_path",
+		"image": "res://assets/raw_assets/metal_chassis_upgrade_icon.png",
 	},
 ]
 

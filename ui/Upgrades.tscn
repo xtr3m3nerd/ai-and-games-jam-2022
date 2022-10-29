@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://ui/Upgrades.gd" type="Script" id=1]
+[ext_resource path="res://assets/raw_assets/gears_icon.png" type="Texture" id=2]
 
 [node name="Upgrades" type="Control"]
 anchor_right = 1.0
@@ -33,3 +34,18 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 143.0
 margin_bottom = 43.0
+
+[node name="GearsIcon" type="TextureRect" parent="."]
+margin_left = 23.0
+margin_top = 19.0
+margin_right = 63.0
+margin_bottom = 59.0
+texture = ExtResource( 2 )
+
+[node name="GearsAmount" type="Label" parent="GearsIcon"]
+margin_left = 73.0
+margin_top = 25.0
+margin_right = 113.0
+margin_bottom = 56.0
+text = "5
+"

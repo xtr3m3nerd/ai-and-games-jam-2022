@@ -15,7 +15,10 @@ func setup_upgrades():
 		panel.set_upgrade(upgrade)
 		panel.connect("upgrade_purchased", self, "on_purchase_upgrade")
 		upgrade_list.add_child(panel)
+		
+	$GearsIcon/GearsAmount.text = str(GameManager.player_data["money"])
 
 func on_purchase_upgrade(upgrade):
 	print(upgrade)
 	GameManager.apply_upgrade(upgrade)
+	$GearsIcon/GearsAmount.text = str(GameManager.player_data["money"])

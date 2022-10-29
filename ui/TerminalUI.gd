@@ -1,6 +1,6 @@
 extends Control
 
-onready var label = $VBoxContainer/Label
+onready var label = $Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	label.text = "All good man"
+	label.text = "DATA CORRUPTED"
 
 
 func _on_ColorRect2_gui_input(event):

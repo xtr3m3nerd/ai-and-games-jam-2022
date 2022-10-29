@@ -18,6 +18,7 @@ func _ready():
 	if err != 0:
 		print("ERROR: ", err)
 	set_upgrade(upgrade)
+	change_buy_button_state(!can_afford())
 	
 func set_upgrade(_upgrade):
 	upgrade = _upgrade
